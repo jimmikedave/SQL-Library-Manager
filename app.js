@@ -1,0 +1,19 @@
+//Express module is required
+const express = require('express');
+
+//Creates a server when called
+const app = express();
+
+//Sets the view engine to pug
+app.set('view engine', 'pug');
+
+//Each module is required
+const routes = require('./routes');
+
+//When the designated path is called the middleware function is called 
+app.use(routes);
+
+//Listens for the port 3001 to be called 
+app.listen(3001, () => {
+    console.log('The application is running on localhost: 3001!')
+});
