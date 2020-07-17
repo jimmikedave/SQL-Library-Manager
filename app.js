@@ -8,7 +8,7 @@ const app = express();
 app.set('view engine', 'pug');
 
 //Serves our static files such as images, CSS, and JS files**
-app.use('/static', express.static('public'));
+app.use('/static', express.static('public'))
 
 //Each module is required
 const routes = require('./routes');
