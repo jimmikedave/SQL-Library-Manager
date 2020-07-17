@@ -19,7 +19,7 @@ const bookRoutes = require('./routes/books');
 
 //When the designated path is called the middleware function is called 
 app.use(routes);
-app.use('/books', bookRoutes)
+app.use(bookRoutes);
 
 //Listens for the port 3001 to be called 
 app.listen(3001, () => {
