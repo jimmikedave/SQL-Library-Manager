@@ -1,14 +1,18 @@
 //Express module is required
 const express = require('express');
+// const path = require('path');
 
 //Creates a server when called
 const app = express();
 
 //Sets the view engine to pug
 app.set('view engine', 'pug');
+// app.set('views', path.join(__dirname, 'views'));
 
-//Serves our static files such as images, CSS, and JS files**
+//Serves our static files such as images, CSS, and JS files
 app.use('/static', express.static('public'))
+// app.use(express.static(path.join(__dirname, 'public')));
+
 
 //Each module is required
 const routes = require('./routes');
