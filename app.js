@@ -11,7 +11,7 @@ app.set('view engine', 'pug');
 
 //Serves our static files such as images, CSS, and JS files
 app.use('/static', express.static('public'))
-// app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'views')));
 
 
 //Each module is required
@@ -28,3 +28,5 @@ app.use('/books', bookRoutes)
 app.listen(3001, () => {
     console.log('The application is running on localhost: 3001!')
 });
+
+module.exports = app;
