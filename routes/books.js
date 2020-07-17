@@ -6,4 +6,4 @@ router.get('/books', (req,res) => {
     res.render('index');
 })
 
-modules.exports = router;
+module.exports = router;
