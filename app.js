@@ -9,7 +9,7 @@ const app = express();
 app.set('view engine', 'pug');
 // app.set('views', path.join(__dirname, 'views'));
 
-//Serves our static files such as images, CSS, and JS files
+//Serves our static file (CSS)
 app.use('/static', express.static('public'))
 // app.use(express.static(path.join(__dirname, 'views')));
 
