@@ -1,5 +1,7 @@
 const express = require('express');
+const book = require('../models/book');
 const router = express.Router();
+const Book = require('../models').Book;
 
 /* Handler function to wrap each route. */
 function asyncHandler(cb){
@@ -13,12 +15,14 @@ function asyncHandler(cb){
   }
   
 
-//Renders the homepage
+/* Renders the homepage */
 router.get('/', asyncHandler(async (req,res) => {
-    res.render('index');
+    const books = await Book.findAll();
+    console.log(books);
+    res.render('books/index', {books: books});
 }));
 
-//Create a new book entry
+/* Create a new book entry */
 router.get('/new', (req,res) => {
     res.render('books/new');
 })

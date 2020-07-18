@@ -1,0 +1,11 @@
+extends ../layout 
+
+block content
+    each book in books  
+        book   
+            tr  
+                td= book.title
+                td= book.author
+                td= book.genre
+                td= book.year
+
