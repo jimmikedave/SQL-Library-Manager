@@ -17,9 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/books', bookRoute);
 
-//Listens for the port 3001 to be called 
-app.listen(3001, () => {
-    console.log('The application is running on localhost: 3001!')
-});
+// //Listens for the port 3001 to be called 
+// app.listen(3001, () => {
+//     console.log('The application is running on localhost: 3001!')
+// });
 
 module.exports = app;
