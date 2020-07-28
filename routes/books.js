@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Book = require('../models').Book;
 
-
 /* Handler function to wrap each route. */
 function asyncHandler(cb){
     return async(req, res, next) => {
@@ -43,12 +42,15 @@ router.post('/', asyncHandler(async (req, res) => {
 }));
 
 /* GET individual book to edit */
-router.get("/:id", asyncHandler(async (req, res) => {
+router.get("/:id", asyncHandler(async (req, res, next) => {
     const book = await Book.findByPk(req.params.id);
     if (book) {
       res.render("books/update-book", { book: book, title: book.title }); 
     } else {
-      res.sendStatus(404)
+      const err = new Error();
+      err.status = 404;
+      err.message = "Looks like the book you requested doesn't exist."
+      next(err)
     }
   }));
 
@@ -74,7 +76,5 @@ router.post("/:id/delete", asyncHandler(async (req, res) => {
         res.sendStatus(404);
     }
 }));
-
-
 
 module.exports = router;
