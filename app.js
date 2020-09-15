@@ -10,8 +10,9 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-
+// Middleware that allows us to use req.body
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: false }));
 
 
